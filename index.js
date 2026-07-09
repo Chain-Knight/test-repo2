@@ -60,7 +60,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
       `Code: **${nick}**\nUser: ${interaction.user.tag} (${interaction.user.id})`
     );
 
-    await interaction.reply({ content: 'Email verified. Please wait for an examiner to test your combat abilities.', ephemeral: true });
+    await interaction.reply({ content: 'Email verified. When your turn for combat evaluation comes, you will be granted the <@&1524794573149442108> role. When you complete the evaluation you will recieve the evaluation results in a dm and you will be kicked from this server. If you pass you will also be sent the invite to the tournament server.', ephemeral: true });
   }
 });
 
