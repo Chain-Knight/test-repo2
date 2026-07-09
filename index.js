@@ -60,7 +60,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
       `Code: **${nick}**\nUser: ${interaction.user.tag} (${interaction.user.id})`
     );
 
-    await interaction.reply({ content: 'Email verified. Please wait for examiners to test your combat abilities.', ephemeral: true });
+    await interaction.reply({ content: 'Email verified. Please wait for an examiner to test your combat abilities.', ephemeral: true });
   }
 });
 
