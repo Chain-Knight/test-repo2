@@ -44,7 +44,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
     const input = new TextInputBuilder()
       .setCustomId('nick_input')
-      .setLabel('Enter the E-Mail Verification code below:')
+      .setLabel('Enter the 6-digit E-Mail Verification code below.')
       .setStyle(TextInputStyle.Short)
       .setRequired(true);
 
