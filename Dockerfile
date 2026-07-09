@@ -1,18 +1,17 @@
-# Use an official lightweight Node.js image
+# Use a lightweight Node.js LTS image
 FROM node:20-alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-# Copy package files and install dependencies
+# Copy package configuration files
 COPY package*.json ./
-RUN npm install --production
+
+# Install production dependencies
+RUN npm ci --only=production
 
 # Copy the rest of your application code
-COPY . .
+COPY index.js ./
 
-# Expose the port your bot/app runs on (change if your app uses a different port)
-EXPOSE 3000
-
-# Command to run your application
-CMD ["node", "index.js"]
+# Start the bot
+CMD [ "npm", "start" ]
