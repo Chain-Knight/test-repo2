@@ -14,8 +14,9 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
 
-const TARGET_CHANNEL_ID = 'CHANNEL_TO_SEND_BUTTON_MESSAGE';
-const LOG_CHANNEL_ID = 'CHANNEL_TO_SEND_RESULTS';
+const TARGET_CHANNEL_ID = process.env.TARGET_CHANNEL_ID;
+const LOG_CHANNEL_ID = process.env.LOG_CHANNEL_ID;
+
 
 client.once(Events.ClientReady, async () => {
   const channel = await client.channels.fetch(TARGET_CHANNEL_ID);
@@ -63,4 +64,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-client.login('YOUR_BOT_TOKEN');
+client.login(process.env.DISCORD_TOKEN);
